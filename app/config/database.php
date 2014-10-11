@@ -54,10 +54,11 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
-			'password'  => '',
+			'host'      => '127.0.0.1:3306',
+			'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
+			'database'  => 'lara_blog',
+			'username'  => 'masaki',
+			'password'  => 'm119masaki',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
