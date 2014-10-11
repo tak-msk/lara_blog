@@ -16,7 +16,7 @@ Route::get('admin/dashboard', function()
 {
 	return 'admin site';
 });
-Route::get('login', function() 
+Route::get('login', function()
 {
 	return View::make('login');
 });
