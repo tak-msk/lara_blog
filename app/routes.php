@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', function()
+Route::when('admin/*','auth');
+Route::get('admin/dashboard', function()
 {
-	return View::make('hello');
+	return 'admin site';
+});
+Route::get('login', function() 
+{
+	return View::make('login');
 });
