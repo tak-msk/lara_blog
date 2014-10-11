@@ -1,6 +1,6 @@
 body {
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-top: 10%;
+	padding-bottom: 20%;
 	background-color: #eee;
 }
 
@@ -18,7 +18,6 @@ body {
 }
 .form-signin .form-control {
 	position: relative;
-	width: 100%;
 	height: auto;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -51,7 +50,7 @@ body {
 	color: #ccc;
 }
 /*Firefox 19ˆÈ~*/
-.form-control::-moz-placeholder{
+.form-control::-moz-placeholder {
 	color: #ccc;
 }
 /*Firefox 18ˆÈ‘O*/

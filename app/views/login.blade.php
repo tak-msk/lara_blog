@@ -31,7 +31,7 @@
 			{{$errors->first('warning')}}
 		</div>
 		@endif
-		{{Form::checkbox('remember',1,false,['id'=>'label_1'])}}<label for="label_1">Remember me</label>
+		{{Form::checkbox('remember',1,false,['id'=>'label_1'])}}<label for="label_1" class="remember">Remember me</label>
 		{{Form::submit('Sign in',array('class'=>'btn btn-lg btn-primary btn-block'))}}
 		{{Form::close()}}
 	</div><!-- /.container -->
