@@ -12,11 +12,13 @@
 */
 
 Route::when('admin/*','auth');
-Route::get('admin/dashboard', function()
+Route::get('admin/dashboard', array('as'=>'dashboard', function()
 {
 	return 'admin site';
-});
-Route::get('login', function()
+}));
+Route::get('login',function()
 {
-	return View::make('login');
+	return View::make('login');	
 });
+Route::post('login', array('before'=>'csrf','uses'=>'AuthController@postLogin'));
+Route::get('logout', 'AuthController@getLogout');
