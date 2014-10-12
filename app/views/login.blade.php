@@ -26,9 +26,13 @@
 		<h2 class="form-signin-heading">Please sign in</h2>
 		{{Form::text('username','',array('class'=>'form-control','placeholder'=>'Username'))}}
 		{{Form::password('password',array('class'=>'form-control','placeholder'=>'Password'))}}
-		@if($errors->has('warning'))
+		@if($errors->has())
 		<div class="alert alert-danger">
-			{{$errors->first('warning')}}
+			<ul>
+			@foreach($errors->all() as $warning)
+				<li>{{$warning}}</li>
+			@endforeach
+			</ul>
 		</div>
 		@endif
 		{{Form::checkbox('remember',1,false,['id'=>'label_1'])}}<label for="label_1" class="remember">Remember me</label>
