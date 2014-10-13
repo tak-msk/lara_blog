@@ -1,0 +1,1 @@
+/Users/taka/Sites/lara_blog/app/views/articles/create.blade.php
