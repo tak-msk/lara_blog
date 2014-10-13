@@ -12,13 +12,18 @@
 */
 
 Route::when('admin/*','auth');
-Route::get('admin/dashboard', array('as'=>'dashboard', function()
+Route::group(array('prefix'=>'backend','before'=>'auth'),function() 
 {
-	return 'admin site';
-}));
+	Route::get('dashboard', array('as'=>'dashboard', function()
+	{
+		return View::make('backend.index');
+	}));
+	// article
+	Route::get('articles','ArticlesController');
+});
 Route::get('login',function()
 {
 	return View::make('login');	
 });
 Route::post('login', array('before'=>'csrf','uses'=>'AuthController@postLogin'));
-Route::get('logout', 'AuthController@getLogout');
+Route::get('logout', array('as'=>'logout', 'uses' => 'AuthController@getLogout'));
