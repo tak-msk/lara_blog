@@ -9,9 +9,9 @@ class ArticlesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$articles = Article::all();
+		$articles = Article::orderBy('id','DESC')->paginate(10);
 
-		return View::make('articles.index', compact('articles'));
+		return View::make('backend.articles.index', compact('articles'));
 	}
 
 	/**
@@ -101,7 +101,7 @@ class ArticlesController extends \BaseController {
 	{
 		Article::destroy($id);
 
-		return Redirect::route('articles.index');
+		return Redirect::action('ArticlesController@index');
 	}
 
 }
