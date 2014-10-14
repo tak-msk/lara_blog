@@ -19,7 +19,7 @@ Route::group(array('prefix'=>'backend','before'=>'auth'),function()
 		return View::make('backend.index');
 	}));
 	// article
-	Route::get('articles','ArticlesController');
+	Route::resource('articles','ArticlesController');
 });
 Route::get('login',function()
 {
