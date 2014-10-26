@@ -20,6 +20,8 @@ Route::group(array('prefix'=>'backend','before'=>'auth'),function()
 	}));
 	// article
 	Route::resource('articles','ArticlesController');
+	//category
+	Route::resource('categories', 'CategoriesController');
 });
 Route::get('login',function()
 {

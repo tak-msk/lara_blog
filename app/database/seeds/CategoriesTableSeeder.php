@@ -3,7 +3,7 @@
 // Composer: "fzaninotto/faker": "v1.3.0"
 use Faker\Factory as Faker;
 
-class ArticlesTableSeeder extends Seeder {
+class CategoriesTableSeeder extends Seeder {
 
 	public function run()
 	{
@@ -11,7 +11,7 @@ class ArticlesTableSeeder extends Seeder {
 
 		foreach(range(1, 10) as $index)
 		{
-			Article::create([
+			Category::create([
 
 			]);
 		}
