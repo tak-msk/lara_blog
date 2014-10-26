@@ -21,7 +21,7 @@ class ArticlesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('articles.create');
+		return View::make('backend.articles.create');
 	}
 
 	/**
@@ -37,10 +37,10 @@ class ArticlesController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-
+		$data['is_published'] = isset($data['is_published']) ? true : false;
 		Article::create($data);
-
-		return Redirect::route('articles.index');
+		Notification::success('Article was successfully added');
+		return Redirect::action('ArticlesController@index');
 	}
 
 	/**
@@ -64,9 +64,16 @@ class ArticlesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$article = Article::find($id);
-
-		return View::make('articles.edit', compact('article'));
+		try 
+		{
+			$article = Article::findOrFail($id);
+			return View::make('backend.articles.edit',compact('article'));
+		}
+		catch(ModelNotFoundException $e)
+		{
+			Notification::error('Not Found');
+			return Redirect::action('ArticlesController@index');
+		}
 	}
 
 	/**
@@ -77,18 +84,26 @@ class ArticlesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$article = Article::findOrFail($id);
-
+		try 
+		{
+			$article = Article::findOrFail($id);
+		}
+		catch(ModelNotFoundException $e) 
+		{
+			Notification::error('Not Found');
+			return Redirect::action('ArticlesController@index');
+		}
 		$validator = Validator::make($data = Input::all(), Article::$rules);
-
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+		$data['is_published'] = isset($data['is_published']) ? true : false;
 		$article->update($data);
+		Notification::success('Article was successfully updated');
+		return Redirect::action('ArticlesController@index');
 
-		return Redirect::route('articles.index');
 	}
 
 	/**
@@ -100,7 +115,7 @@ class ArticlesController extends \BaseController {
 	public function destroy($id)
 	{
 		Article::destroy($id);
-
+		Notification::success('Article was successfully deleted');
 		return Redirect::action('ArticlesController@index');
 	}
 

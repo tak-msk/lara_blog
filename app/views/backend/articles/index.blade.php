@@ -3,7 +3,8 @@
 	article - @parent
 @stop
 @section('content')
-	<h1 class="page-header">Article</h1>
+	<h1 class="page-header">Articles</h1>
+	{{Notification::showAll()}}
 	<div class="pull-left">
 		<div class="btn-toolbar">
 			<a class="btn btn-primary" href="{{URL::route('backend.articles.create')}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;New Post</a>
@@ -64,4 +65,14 @@
 @else
 	<div class="alert alert-danger">No results found</div>
 @endif
+@stop
+@section('script')
+@parent
+	<script type="text/javascript">
+		$(document).ready(function() {
+			setTimeout(function() {
+				$('.alert').slideUp();
+			}, 3000);
+		});
+	</script>
 @stop
