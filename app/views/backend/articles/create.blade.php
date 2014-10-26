@@ -26,7 +26,7 @@
 	<div class="form-group has-feedback {{ $errors->has('category_id')?'has-error':''}}">
 		<label class="control-label col-sm-2" for="category_id">Category</label>
 		<div class="col-sm-10">
-			<!-- Category list-->
+			{{ Form::select('category_id', array('default'=>'Please Select')+$categories, null, array('class'=>'form-control')) }}
 		</div>
 	</div>
 	<!-- Content -->

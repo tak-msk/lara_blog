@@ -51,7 +51,7 @@
 			<tr>
 				<td><a href="{{URL::route('backend.articles.edit', array($article->id))}}">{{$article->title}}</a></td>
 				<td>{{($article->is_published)?'Open':'Closed'}}</td>
-				<td><!-- Category --></td>
+				<td>{{$article->category->category or ''}}</td>
 				<td>{{$article->created_at}}</td>
 				<td>{{$article->updated_at}}</td>
 				<td>{{$article->id}}</td>

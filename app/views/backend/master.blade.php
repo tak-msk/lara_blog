@@ -34,9 +34,9 @@
 			</div><!-- /.navbar-header -->
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="{{Request::is('backend/dashboard')?'active':''}}"><a href="{{{ URL::route('dashboard') }}}">Dashboard</a></li>
-					<li class="{{Request::is('backend/articles*')?'active':''}}"><a href="{{{ URL::to('backend/articles')}}}">Article</a></li>
-					<li class="{{Request::is('backend/categories*')?'active':''}}"><a href="#">Category</a></li>
+					<li class="{{Request::is('backend/dashboard')?'active':''}}"><a href="{{ URL::route('dashboard') }}">Dashboard</a></li>
+					<li class="{{Request::is('backend/articles*')?'active':''}}"><a href="{{ URL::to('backend/articles')}}">Article</a></li>
+					<li class="{{Request::is('backend/categories*')?'active':''}}"><a href="{{ URL::to('backend/categories') }}">Category</a></li>
 					<li class="{{Request::is('backend/blocks*')?'active':''}}"><a href="#">Block</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

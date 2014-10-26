@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class ArticlesController extends \BaseController {
 
 	/**
@@ -21,7 +23,8 @@ class ArticlesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('backend.articles.create');
+		$categories = Category::all()->lists('category','id');
+		return View::make('backend.articles.create', compact('categories'));
 	}
 
 	/**
@@ -37,7 +40,7 @@ class ArticlesController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-		$data['is_published'] = isset($data['is_published']) ? true : false;
+		$data['is_published'] = isset($data['is_published'])?true:false;
 		Article::create($data);
 		Notification::success('Article was successfully added');
 		return Redirect::action('ArticlesController@index');
@@ -67,7 +70,8 @@ class ArticlesController extends \BaseController {
 		try 
 		{
 			$article = Article::findOrFail($id);
-			return View::make('backend.articles.edit',compact('article'));
+			$categories = Category::all()->lists('category','id');
+			return View::make('backend.articles.edit',compact('article','categories'));
 		}
 		catch(ModelNotFoundException $e)
 		{
