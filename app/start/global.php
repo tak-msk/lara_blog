@@ -69,13 +69,15 @@ App::down(function()
 
 /*
 |--------------------------------------------------------------------------
-| App missing for 404
+| App missing for 404(http://kore1server.com/117)
 |--------------------------------------------------------------------------
 */
 
 App::missing(function($e)
 {
-	return Response::make("Page not found",404);
+	$url = Request::fullUrl();
+	Log::warning("404 for URL: $url");
+	return Response::view('errors.not-found', array(), 404);
 });
 
 /*
