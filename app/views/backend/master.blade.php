@@ -37,7 +37,7 @@
 					<li class="{{Request::is('backend/dashboard')?'active':''}}"><a href="{{ URL::route('dashboard') }}">Dashboard</a></li>
 					<li class="{{Request::is('backend/articles*')?'active':''}}"><a href="{{ URL::to('backend/articles')}}">Article</a></li>
 					<li class="{{Request::is('backend/categories*')?'active':''}}"><a href="{{ URL::to('backend/categories') }}">Category</a></li>
-					<li class="{{Request::is('backend/blocks*')?'active':''}}"><a href="#">Block</a></li>
+					<li class="{{Request::is('backend/blocks*')?'active':''}}"><a href="{{ URL::to('backend/blocks') }}">Block</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{{{ URL::route('logout') }}}">Logout</a></li>
