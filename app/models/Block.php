@@ -6,7 +6,7 @@ class Block extends \Eloquent {
 	public static $rules = [
 		'title' => 'required',
 		'type' => 'required|in:0,1',
-		'contents' => 'required'
+		'value' => 'required'
 	];
 
 	// Don't forget to fill this array

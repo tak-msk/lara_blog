@@ -101,9 +101,8 @@ class BlocksController extends \BaseController {
 			Notification::error('A block is not found');
 			return Redirect::action('BlocksController@index');
 		}
-		
 		$validator = Validator::make($data = Input::except('module'), Block::$rules);
-		
+
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
@@ -112,7 +111,6 @@ class BlocksController extends \BaseController {
 		$data['is_published'] = isset($data['is_published']) ? true : false;
 
 		$block->update($data);
-
 		Notification::success('A block was updated');
 		return Redirect::action('BlocksController@index');
 	}
