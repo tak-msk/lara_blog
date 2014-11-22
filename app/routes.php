@@ -12,6 +12,8 @@
 */
 
 Route::when('admin/*','auth');
+
+// ADMIN SECTION
 Route::group(array('prefix'=>'backend','before'=>'auth'),function() 
 {
 	Route::get('dashboard', array('as'=>'dashboard', function()
@@ -20,8 +22,11 @@ Route::group(array('prefix'=>'backend','before'=>'auth'),function()
 	}));
 	// article
 	Route::resource('articles','ArticlesController');
-	//category
+	// category
 	Route::resource('categories', 'CategoriesController');
+	// block
+	Route::post('blocks/sort', 'BlocksController@sort');
+	Route::resource('blocks', 'BlocksController');
 });
 Route::get('login',function()
 {

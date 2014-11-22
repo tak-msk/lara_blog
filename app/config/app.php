@@ -122,8 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Krucas\Notification\NotificationServiceProvider',
-
+		'Krucas\Notification\NotificationServiceProvider'
 	),
 
 	/*
